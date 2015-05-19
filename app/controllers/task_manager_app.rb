@@ -1,6 +1,7 @@
 require 'models/task_manager'
 
 class TaskManagerApp < Sinatra::Base
+  #set is a method in sinatra that takes argument
   set :root, File.join(File.dirname(__FILE__), '..')
 
   get '/' do
