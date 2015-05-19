@@ -1,0 +1,46 @@
+body {
+    background: url('croissant.jpg');
+    background-size: 1300px 700px;
+}
+
+.container {
+    text-align: center;
+}
+
+a:hover {
+    color: magenta;
+}
+
+a {
+    color: blue;
+    -webkit-transition: color 0.5s;
+    -moz-transition:    color 0.5s;
+    -ms-transition:     color 0.5s;
+    -o-transition:      color 0.5s;
+    transition:         color 0.5s;
+}
+
+#main {
+    position: absolute;
+    top: 35%;
+    left: 36%;
+    width: 477px;
+}
+
+li {
+    list-style-type: none;
+    display: inline;
+    margin-right: 80px;
+}
+
+h1 {
+    font: 100 40px/1.5 'Pacifico', Helvetica, sans-serif;
+    color: #2b2b2b;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
+}
+#font {
+    font: 900 25px/1.5 'Pacifico', Helvetica, sans-serif;
+    color: #2b2b2b;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.1), 7px 7px 0px rgba(0,0,0,0.05);
+}
+
