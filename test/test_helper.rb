@@ -8,9 +8,17 @@ ENV['TASK_MANAGER_ENV'] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'minitest/autorun'
 require 'minitest/pride'
-#ModelTest arbitrary name
-class ModelTest < Minitest::Test
+require 'capybara'
+# monkey patching into minitest
+class Minitest::Test
   def teardown
     TaskManager.delete_all
   end
+end
+#only in sinatra, this tells capy to use our app
+Capybara.app = TaskManagerApp
+
+#since our model tests don't rely on this, we just include capy in feature tests
+class FeatureTest < Minitest::Test
+  include Capybara::DSL
 end

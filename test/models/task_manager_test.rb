@@ -1,6 +1,6 @@
 require_relative '../test_helper'
 
-class TaskManagerTest < ModelTest
+class TaskManagerTest < Minitest::Test
 
   def create_tasks(num)
     num.times do |num|
@@ -22,7 +22,7 @@ class TaskManagerTest < ModelTest
     create_tasks(3)
 
     assert_equal 3, TaskManager.all.count
-    assert_equal ["title0", "title1", "title2"], TaskManager.all.map{|task|task.title}
+    assert_equal ["title0", "title1", "title2"], TaskManager.all.map(&:title)
   end
 
   def test_it_can_find_a_task
