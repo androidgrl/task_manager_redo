@@ -43,8 +43,8 @@ class TaskManager
   def self.update(id, data)
     database.transaction do
       target = database['tasks'].find { |task| task["id"] == id }
-      target["title"] = data[:title]
-      target["description"] = data[:description]
+      target["title"] = data["title"]
+      target["description"] = data["description"]
     end
   end
 
