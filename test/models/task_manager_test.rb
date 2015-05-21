@@ -30,9 +30,10 @@ class TaskManagerTest < Minitest::Test
   def test_it_can_find_a_task
     create_tasks(3)
 
-    task2 = TaskManager.find(2)
+    last_id = TaskManager.all.last.id
+    task = TaskManager.find(last_id)
 
-    assert_equal "title1", task2.title
+    assert_equal "title2", task.title
   end
 
   def test_it_can_update_a_task
@@ -40,8 +41,9 @@ class TaskManagerTest < Minitest::Test
     data2 = { "title" => "learn rails", "description" => "for reals." }
 
     TaskManager.create(data1)
-    TaskManager.update(1, data2)
-    task = TaskManager.find(1)
+    last_id = TaskManager.all.last.id
+    TaskManager.update(last_id, data2)
+    task = TaskManager.find(last_id)
 
     assert_equal "learn rails", task.title
   end

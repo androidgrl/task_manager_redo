@@ -63,11 +63,12 @@ class TaskManager
   end
 
   def self.update(id, data)
-    database.transaction do
-      target = database['tasks'].find { |task| task["id"] == id }
-      target["title"] = data["title"]
-      target["description"] = data["description"]
-    end
+    dataset.where(id: id).update(data)
+    #database.transaction do
+      #target = database['tasks'].find { |task| task["id"] == id }
+      #target["title"] = data["title"]
+      #target["description"] = data["description"]
+    #end
   end
 
   def self.destroy(id)

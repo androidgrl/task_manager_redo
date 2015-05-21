@@ -9,7 +9,7 @@ class UserEditsTaskTest < FeatureTest
     end
     click_link("Edit")
 
-   last_id = TaskManager.all.last.id
+    last_id = TaskManager.all.last.id
 
 
     assert_equal "/tasks/#{last_id}/edit", current_path
