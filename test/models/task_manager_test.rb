@@ -15,7 +15,6 @@ class TaskManagerTest < Minitest::Test
     task = TaskManager.find(last_id)
 
     assert_equal last_id, task.id
-    #assert_equal 1, task.id
     assert_equal "title0", task.title
     assert_equal "description0", task.description
   end
@@ -56,9 +55,5 @@ class TaskManagerTest < Minitest::Test
 
     TaskManager.destroy(last_id)
     assert_equal 4, TaskManager.all.count
-    #assert_equal "title1", TaskManager.all.first.title
-
-    #TaskManager.destroy(last_id)
-    #assert_equal 3, TaskManager.all.count
   end
 end
