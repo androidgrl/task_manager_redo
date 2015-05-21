@@ -8,11 +8,15 @@ class UserEditsTaskTest < FeatureTest
       assert page.has_content?("Learn ios")
     end
     click_link("Edit")
-    assert_equal "/tasks/1/edit", current_path
+
+   last_id = TaskManager.all.last.id
+
+
+    assert_equal "/tasks/#{last_id}/edit", current_path
     fill_in("task[title]", :with => "Learn android")
     fill_in("task[description]", :with => "Make MM App")
     click_button("Submit")
-    assert_equal "/tasks/1", current_path
+    assert_equal "/tasks/#{last_id}", current_path
     within("#show") do
       assert page.has_content?("Learn android")
       refute page.has_content?("Learn ios")
